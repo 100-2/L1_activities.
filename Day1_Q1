@@ -1,32 +1,23 @@
 #include <stdio.h>
 
-int findLargestNumber(int num);
-
-int main() {
-    int num;
-    printf("Enter a 4-digit number: ");
-    scanf("%d", &num);
-
-    int largestNumber = findLargestNumber(num);
-
-    printf("Largest number by deleting a single digit: %d\n", largestNumber);
-
-    return 0;
+int findBiggestUsingIfElse(int a, int b) {
+    if (a > b)
+        return a;
+    else
+        return b;
 }
 
-int findLargestNumber(int num) {
-    int largest = 0;
-    int divisor = 1000;
+int findBiggestUsingTernary(int a, int b) {
+    return (a > b) ? a : b;
+}
 
-    while (divisor > 0) {
-        int newNumber = (num / divisor / 10) * divisor + num % divisor;
-
-        if (newNumber > largest) {
-            largest = newNumber;
-        }
-
-        divisor /= 10;
-    }
-
-    return largest;
+int main() {
+    int num1, num2;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
+    
+    printf("Using if-else: %d\n", findBiggestUsingIfElse(num1, num2));
+    printf("Using ternary operator: %d\n", findBiggestUsingTernary(num1, num2));
+    
+    return 0;
 }
